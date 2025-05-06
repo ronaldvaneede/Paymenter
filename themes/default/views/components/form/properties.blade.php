@@ -6,12 +6,12 @@
         @case('string')
 
         @case('number')
-            <x-form.input :type="$property->type" name="properties.{{ $property->key }}" :label="$property->name" :required="$property->required"
+            <x-form.input :type="$property->type" name="properties.{{ $property->key }}" :label="__('general.input.'.$property->key)" :required="$property->required"
                 wire:model="properties.{{ $property->key }}" :value="$properties[$property->key] ?? ''" />
         @break
 
         @case('checkbox')
-            <x-form.checkbox name="properties.{{ $property->key }}" :label="$property->name" :required="$property->required"
+            <x-form.checkbox name="properties.{{ $property->key }}" :label="__('general.input.'.$property->key)" :required="$property->required"
                 wire:model="properties.{{ $property->key }}" :checked="$properties[$property->key] ?? false" />
         @break
 
@@ -29,12 +29,12 @@
         @break
 
         @case('select')
-            <x-form.select name="properties.{{ $property->key }}" :label="$property->name"
+            <x-form.select name="properties.{{ $property->key }}" :label="__('general.input.'.$property->key)"
                 wire:model="properties.{{ $property->key }}" :required="$property->required" :options="$property->allowed_values" :selected="$properties[$property->key] ?? ''" />
         @break
 
         @case('text')
-            <x-form.textarea :type="$property->type" name="properties.{{ $property->key }}" :label="$property->name" :required="$property->required"
+            <x-form.textarea :type="$property->type" name="properties.{{ $property->key }}" :label="__('general.input.'.$property->key)" :required="$property->required"
                 wire:model="properties.{{ $property->key }}">{{ $properties[$property->key] ?? '' }}</x-form.textarea>
         @break
 
